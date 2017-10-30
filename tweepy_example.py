@@ -11,15 +11,15 @@ access_token_secret = twitter_info.access_token_secret
 auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
 auth.set_access_token(access_token, access_token_secret)
 
-# Set up library to grab stuff from twitter with your authentication, and return it in a JSON format 
+# Set up library to grab stuff from twitter with your authentication, and return it in a JSON format
 api = tweepy.API(auth, parser=tweepy.parsers.JSONParser())
 
-public_tweets = api.home_timeline() # One possible method! Check out: http://tweepy.readthedocs.io/en/v3.5.0/api.html#timeline-methods 
+public_tweets = api.home_timeline() # One possible method! Check out: http://tweepy.readthedocs.io/en/v3.5.0/api.html#timeline-methods
 print(type(public_tweets)," is the type of publictweets")
 
 for tweet in public_tweets:
     print("\n*** type of the tweet object that is included ***\n")
-    print(type(tweet),"type of one tweet") 
+    print(type(tweet),"type of one tweet")
     print(tweet) ## Huh. That's not easy to read.
 
 # Let's pull apart one tweet to take a look at it.
@@ -42,7 +42,7 @@ print(single_tweet["favorite_count"])
 ## But what if I don't want just my own public timeline's tweets -- I want to search for a certain phrase on Twitter!
 print("********\n\n\n*******")
 results = api.search(q="university of michigan")
-print(type(results), "is the type of the results variable") 
+print(type(results), "is the type of the results variable")
 
 ## OK, it's a dictionary. What are its keys?
 print(results.keys())
